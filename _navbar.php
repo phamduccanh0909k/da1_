@@ -36,7 +36,7 @@
         <i class="fas fa-shopping-cart text-primary"></i>
         <span class="badge">0</span>
       </a>
-      <a href="?act=login" class="btn border">
+      <a href="login.html" class="btn border">
         <i class="far fa-user text-primary"></i>
       </a>
     </div>

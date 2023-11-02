@@ -21,9 +21,6 @@
       case 'cart':
         include_once("./cart.php");
         break;
-      case 'login':
-        include_once("./home/index.php");
-        break;
       case 'checkout':
         include_once("./checkout.php");
         break;
