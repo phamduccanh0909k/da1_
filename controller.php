@@ -1,4 +1,3 @@
-
   <?php
   // Navbar
   include_once("_navbar.php");

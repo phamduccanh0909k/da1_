@@ -2,6 +2,7 @@
 <div class="container-fluid py-5">
   <div class="row px-xl-5">
     <div class="col-lg-5 pb-5">
+      <!-- List img -->
       <div id="product-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner border">
           <div class="carousel-item active">
@@ -26,6 +27,7 @@
       </div>
     </div>
 
+    <!-- Product information -->
     <div class="col-lg-7 pb-5">
       <h3 class="font-weight-semi-bold">Colorful Stylish Shirt</h3>
       <div class="d-flex mb-3">
@@ -46,6 +48,8 @@
         lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum
         kasd rebum.
       </p>
+
+      <!-- Size -->
       <div class="d-flex mb-3">
         <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
         <form>
@@ -71,6 +75,8 @@
           </div>
         </form>
       </div>
+
+      <!-- Color -->
       <div class="d-flex mb-4">
         <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
         <form>
@@ -133,14 +139,17 @@
       </div>
     </div>
   </div>
+
+  <!-- Description & Review -->
   <div class="row px-xl-5">
     <div class="col">
       <div class="nav nav-tabs justify-content-center border-secondary mb-4">
         <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
         <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
       </div>
       <div class="tab-content">
+
+        <!-- Description -->
         <div class="tab-pane fade show active" id="tab-pane-1">
           <h4 class="mb-3">Product Description</h4>
           <p>
@@ -164,57 +173,8 @@
             magna et.
           </p>
         </div>
-        <div class="tab-pane fade" id="tab-pane-2">
-          <h4 class="mb-3">Additional Information</h4>
-          <p>
-            Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea.
-            Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam
-            ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed
-            sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
-            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum
-            accusam sadipscing, eos dolores sit no ut diam consetetur duo justo
-            est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor
-            accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
-            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea
-            invidunt.
-          </p>
-          <div class="row">
-            <div class="col-md-6">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item px-0">
-                  Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                </li>
-                <li class="list-group-item px-0">
-                  Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                </li>
-                <li class="list-group-item px-0">
-                  Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                </li>
-                <li class="list-group-item px-0">
-                  Takimata ea clita labore amet ipsum erat justo voluptua.
-                  Nonumy.
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item px-0">
-                  Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                </li>
-                <li class="list-group-item px-0">
-                  Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                </li>
-                <li class="list-group-item px-0">
-                  Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                </li>
-                <li class="list-group-item px-0">
-                  Takimata ea clita labore amet ipsum erat justo voluptua.
-                  Nonumy.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
+        <!-- Review -->
         <div class="tab-pane fade" id="tab-pane-3">
           <div class="row">
             <div class="col-md-6">
@@ -288,6 +248,7 @@
     </h2>
   </div>
   <div class="row px-xl-5">
+    <!-- Realted Products -->
     <div class="col">
       <div class="owl-carousel related-carousel">
         <div class="card product-item border-0">
