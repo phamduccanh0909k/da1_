@@ -12,7 +12,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Add</button>
     <a href="?act=list_cat">
-        <input class="btn" type="button" value="LIST_CAT" id="t">
+    <button type="submit" class="btn btn-primary">LIST_CAT</button>
       </a>
   </form>
 </div>
