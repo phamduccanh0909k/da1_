@@ -63,13 +63,13 @@
                         />
                         <div class="d-flex mt-2 justify-content-between">
                           <small>
-                            <a href="pages-reset-password.html"
+                            <a href="?act=reset_password"
                               >Forgot password?</a
                             >
                           </small>
                           <br />
                           <small>
-                            <a href="pages-sign-up.html">Create account?</a>
+                            <a href="?act=sign_up">Create account?</a>
                           </small>
                         </div>
                       </div>
