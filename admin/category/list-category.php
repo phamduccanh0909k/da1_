@@ -18,367 +18,41 @@
               <th>ID</th>
               <th>Category name</th>
               <th>Image</th>
-              <th>Date create</th>
-              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Category name 1</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 1</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 1</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 1</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
+            <?php foreach ($dslh as $d) {
+              extract($d);
 
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Category name 2</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Smartphone</td>
-              <td><img src="" alt="anh"></td>
-              <td>2011/04/25</td>
-              <td>Show</td>
-              <td class="text-center">
-                <a href="?act=updateCate" class="btn btn-warning">Update</a>
-                <a href="?act=deleteCate" class="btn btn-danger">Delete</a>
-              </td>
-            </tr>
+              $suadm = "index.php?act=suadm&id_cat=" . $id_cat;
+              $xoadm = "index.php?act=xoadm&id_cat=" . $id_cat;
+              $hinhpath = "../upload/" . $img_cat;
+              if (is_file($hinhpath)) {
+                $hinh = "<img src='" . $hinhpath . "' height='90' width='300'>";
+              } else {
+                $hinh = "No photo";
+              }
+
+              echo ' 
+          <tr>
+            <td>' . $id_cat . '</td>
+            <td>' . $name_cat . '</td>
+            <td>' . $hinh . '</td>
+            <td class="text-center">
+              <a href="' . $suadm . '" class="btn btn-warning"><input type="button" value="UPDATE" /></a>
+              <a href="' . $xoadm . '" class="btn btn-danger"><input type="button" value="DELETE" onclick ="return confirm(\'ban co chac chan muon xoa?\')" /></a>
+            </td>
+          </tr>
+     ';
+            }
+            ?>
           </tbody>
         </table>
+        <a href="?act=add_cat">
+          <input type="submit" class="btn btn-primary" name="them" value="ADD">
+        </a>
+
       </div>
     </div>
   </div>

@@ -27,7 +27,7 @@
         <div class="collapse" id="collapseCate" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
             <a class="nav-link" href="?act=listCategory">List categories</a>
-            <a class="nav-link" href="?act=addCategory">Add categories</a>
+            <a class="nav-link" href="?act=add_cat">Add categories</a>
           </nav>
         </div>
 
