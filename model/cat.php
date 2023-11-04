@@ -1,7 +1,7 @@
 <?php
-function insert_dm($nameloai)
+function insert_cat($name,$file)
 {
-    $sql = "insert into danhmuc(name) values('$nameloai')";
+    $sql = "insert into category(name_cat,img_cat) values('$name','$file')";
     pdo_execute($sql);
 }
 
@@ -10,9 +10,9 @@ function delete_dm($id_dm)
     $sql = "delete from danhmuc where id_dm=" . $id_dm;
     pdo_execute($sql);
 }
-function loadall_dm()
+function loadall_cat()
 {
-    $sql = "select * from danhmuc order by id_dm desc";
+    $sql = "select * from category order by id_cat desc";
     $dslh = pdo_query($sql);
     return $dslh; //co ket qua tra ve phai return
 }

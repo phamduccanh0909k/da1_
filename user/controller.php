@@ -1,6 +1,7 @@
   <?php
   // Navbar
   include_once("_navbar.php");
+  include_once("../global.php");
   //phpMailer
   // require_once '../vendor/PHPMailer/src/Exception.php';
   // require_once '../vendor/PHPMailer/src/PHPMailer.php';
