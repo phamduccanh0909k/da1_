@@ -5,9 +5,9 @@ function insert_cat($name,$file)
     pdo_execute($sql);
 }
 
-function delete_dm($id_dm)
+function delete_cat($id_cat)
 {
-    $sql = "delete from danhmuc where id_dm=" . $id_dm;
+    $sql = "delete from category where id_cat=" . $id_cat;
     pdo_execute($sql);
 }
 function loadall_cat()
