@@ -34,16 +34,39 @@ if (isset($_GET['act'])) {
       }
       include("category/add-category.php");
       break;
-      case 'delete_cat':
-        if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
-            delete_cat($_GET['id_cat']);
-        }
-        $dslh = loadall_cat();
+    case 'delete_cat':
+      if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
+        delete_cat($_GET['id_cat']);
+      }
+      $dslh = loadall_cat();
 
-        include "category/list-category.php";
-        break;
-    case 'updateCate':
-      include("category/update-category.php");
+      include "category/list-category.php";
+      break;
+    case 'edit_cat':
+      if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
+
+        $suadm = loadone_cat($_GET['id_cat']);
+      }
+
+      include "category/update-category.php";
+      break;
+    case 'update_cat':
+      if (isset($_POST['edit']) && ($_POST['edit'])) {
+        $name_cat = $_POST['name_cat'];
+        $id_cat = $_POST['id_cat'];
+        $file = $_FILES['image']['name'];
+        $target_dir = "../upload/";
+        $target_file = $target_dir . basename($_FILES['image']["name"]);
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+          // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        } else {
+          // echo "Sorry, there was an error uploading your file.";
+        }
+        update_cat($name_cat,$file, $id_cat);
+        $tbao = 'Sua data thanh cong';
+      }
+      $dslh = loadall_cat();
+      include "category/list-category.php";
       break;
 
       //Product

@@ -1,5 +1,5 @@
 <?php
-function insert_cat($name,$file)
+function insert_cat($name, $file)
 {
     $sql = "insert into category(name_cat,img_cat) values('$name','$file')";
     pdo_execute($sql);
@@ -16,14 +16,19 @@ function loadall_cat()
     $dslh = pdo_query($sql);
     return $dslh; //co ket qua tra ve phai return
 }
-function loadone_dm($id_dm)
+function loadone_cat($id_cat)
 {
-    $sql = "select * from danhmuc where id_dm=" . $id_dm;
+    $sql = "select * from category where id_cat=" . $id_cat;
     $suadm = pdo_query_one($sql);
     return $suadm; //co ket qua tra ve phai return
 }
-function update_dm($nameloai, $id_dm)
+function update_cat($name_cat, $file, $id_cat)
 {
-    $sql = "update danhmuc set name='" . $nameloai . "' where id_dm=" . $id_dm;
+    if ($file != "") {
+        $sql = "update category set name_cat='" . $name_cat . "' ,img_cat='" . $file . "' where id_cat=" . $id_cat;
+    } else {
+        $sql = "update category set name_cat='" . $name_cat . "' where id_cat=" . $id_cat;
+    }
+
     pdo_execute($sql);
 }
