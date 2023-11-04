@@ -25,8 +25,8 @@
             <?php foreach ($dslh as $d) {
               extract($d);
 
-              $suadm = "index.php?act=suadm&id_cat=" . $id_cat;
-              $xoadm = "index.php?act=xoadm&id_cat=" . $id_cat;
+              $suadm = "index.php?act=edit_cat&id_cat=" . $id_cat;
+              $xoadm = "index.php?act=delete_cat&id_cat=" . $id_cat;
               $hinhpath = "../upload/" . $img_cat;
               if (is_file($hinhpath)) {
                 $hinh = "<img src='" . $hinhpath . "' height='90' width='300'>";

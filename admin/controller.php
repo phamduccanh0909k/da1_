@@ -34,6 +34,14 @@ if (isset($_GET['act'])) {
       }
       include("category/add-category.php");
       break;
+      case 'delete_cat':
+        if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
+            delete_cat($_GET['id_cat']);
+        }
+        $dslh = loadall_cat();
+
+        include "category/list-category.php";
+        break;
     case 'updateCate':
       include("category/update-category.php");
       break;
