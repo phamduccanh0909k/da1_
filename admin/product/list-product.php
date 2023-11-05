@@ -11,6 +11,18 @@
         <i class="fas fa-table me-1"></i>
         List categories
       </div>
+      <form action="index.php?act=list_pro" method="post">
+        <select class="form-select" name="id_cat" id="">
+          <option value="0" selected>TAT CA</option>
+          <?php
+          foreach ($dslh as $ds) {
+            extract($ds);
+            echo '<option value="' . $id_cat . '">' . $name_cat . '</option>';
+          }
+          ?>
+        </select>
+        <input class="btn btn-primary" type="submit" name="listok" value="GO">
+      </form>
       <div class="card-body">
         <table id="datatablesSimple">
           <thead>
@@ -37,13 +49,13 @@
               } else {
                 $hinh = "No photo";
               }
-          
-            echo '  <tr>
+
+              echo '  <tr>
                   <td>' . $id_pro . '</td>
                   <td>' . $name_cat . '</td>
                   <td>' . $name_pro . '</td>
                   <td>' . $hinh . '</td>
-                  <td>' . $price . '</td>
+                  <td>' .  number_format($price, 0, ",", ".") . '$' . '</td>
                   <td>' . $discount . '</td>
                   <td>' . $description . '</td>
                   <td>' . $size . '</td>
@@ -52,7 +64,7 @@
                   <a href="' . $xoasp . '" class="btn btn-danger"><input type="button" value="DELETE" onclick ="return confirm(\'ban co chac chan muon xoa?\')" /></a>
                   </td>
                 </tr>';
-              }
+            }
             ?>
           </tbody>
         </table>
