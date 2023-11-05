@@ -1,13 +1,14 @@
 <?php
-function insert_sp($tensp, $giasp, $gg, $file, $mota, $hdb, $id_dm)
+function insert_pro($name_pro, $file, $des, $dis, $price, $size, $id_cat)
 {
-    $sql = "insert into sanpham(name,price,discount,image,mo_ta,dac_biet,id_dm) values(' $tensp ','$giasp','$gg','$file','$mota','$hdb','$id_dm')";
+    $sql = "insert into product(name_pro,img,description,discount,price,size,id_cat) 
+    values(' $name_pro ','$file','$des','$dis','$price','$size','$id_cat')";
     pdo_execute($sql);
 }
 
-function delete_sp($id_sp)
+function delete_pro($id_pro)
 {
-    $sql = "delete from sanpham where id_sp=" . $id_sp;
+    $sql = "delete from product where id_pro=" . $id_pro;
     pdo_execute($sql);
 }
 
@@ -28,19 +29,28 @@ function loadall_sp_top10()
     $dssp = pdo_query($sql);
     return $dssp; //co ket qua tra ve phai return
 }
-function loadall_sp($kyw = "", $id_dm = 0)
+// function loadall_sp($kyw = "", $id_dm = 0)
+// {
+//     //cach noi chuoi sql
+//     //phai co cach khoang
+//     $sql = "select * from sanpham where 1";
+//     if ($kyw != "") {
+//         $sql .= " and name like '%" . $kyw . "%' ";
+//     }
+//     if ($id_dm > 0) {
+//         $sql .= " and id_dm = '" . $id_dm . "'";
+//     }
+
+//     $sql .= " order by id_sp desc";
+//     $dssp = pdo_query($sql);
+//     return $dssp; //co ket qua tra ve phai return
+// }
+
+function loadall_pro()
 {
     //cach noi chuoi sql
     //phai co cach khoang
-    $sql = "select * from sanpham where 1";
-    if ($kyw != "") {
-        $sql .= " and name like '%" . $kyw . "%' ";
-    }
-    if ($id_dm > 0) {
-        $sql .= " and id_dm = '" . $id_dm . "'";
-    }
-
-    $sql .= " order by id_sp desc";
+    $sql = "select * from product pro join category cat on pro.id_cat = cat.id_cat order by pro.id_pro desc";
     $dssp = pdo_query($sql);
     return $dssp; //co ket qua tra ve phai return
 }
