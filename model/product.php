@@ -12,11 +12,11 @@ function delete_pro($id_pro)
     pdo_execute($sql);
 }
 
-function loadall_sp_home()
+function loadall_pro_home()
 {
     //cach noi chuoi sql
     //phai co cach khoang
-    $sql = "select * from sanpham where 1 order by id_sp desc limit 0,9";
+    $sql = "select * from product where 1 order by id_pro desc limit 0,8";
     $dssp = pdo_query($sql);
     return $dssp; //co ket qua tra ve phai return
 }
