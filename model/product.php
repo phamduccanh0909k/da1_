@@ -46,17 +46,21 @@ function loadall_sp_top10()
 //     return $dssp; //co ket qua tra ve phai return
 // }
 
-function loadall_pro()
+function loadall_pro($id_cat = 0)
 {
     //cach noi chuoi sql
     //phai co cach khoang
-    $sql = "select * from product pro join category cat on pro.id_cat = cat.id_cat order by pro.id_pro desc";
+    $sql = "select * from product pro join category cat on pro.id_cat = cat.id_cat where 1";
+    if ($id_cat > 0) {
+        $sql .= " and pro.id_cat = '" . $id_cat . "'";
+    }
+    $sql .= " order by pro.id_pro desc";
     $dssp = pdo_query($sql);
     return $dssp; //co ket qua tra ve phai return
 }
-function loadone_sp($id_sp)
+function loadone_pro($id_pro)
 {
-    $sql = "select * from sanpham where id_sp=" . $id_sp;
+    $sql = "select * from product where id_pro=" . $id_pro;
     $suasp = pdo_query_one($sql);
     return $suasp; //co ket qua tra ve phai return
 }
@@ -71,16 +75,16 @@ function load_ten_dm($id_dm)
         return "";
     }
 }
-function update_sp($id_sp, $tensp, $giasp, $gg, $file, $mota, $hdb, $id_dm)
+function update_pro($id_pro, $name_pro, $file, $description, $discount, $price, $size, $id_cat)
 {
     if ($file != "") {
-        $sql = "update sanpham set name='" . $tensp . "',price='" . $giasp . "',
-        discount='" . $gg . "',image='" . $file . "',mo_ta='" . $mota . "',
-        dac_biet='" . $hdb . "',id_dm='" . $id_dm . "' where id_sp=" . $id_sp;
+        $sql = "update product set name_pro='" . $name_pro . "',img='" . $file . "',
+        description='" . $description . "',discount='" . $discount . "',price='" . $price . "',
+        size='" . $size . "',id_cat='" . $id_cat . "' where id_pro=" . $id_pro;
     } else {
-        $sql = "update sanpham set name='" . $tensp . "',price='" . $giasp . "',
-        discount='" . $gg . "',mo_ta='" . $mota . "',
-        dac_biet='" . $hdb . "',id_dm='" . $id_dm . "' where id_sp=" . $id_sp;
+        $sql = "update product set name_pro='" . $name_pro . "',
+        description='" . $description . "',discount='" . $discount . "',price='" . $price . "',
+        size='" . $size . "',id_cat='" . $id_cat . "' where id_pro=" . $id_pro;
     }
 
     pdo_execute($sql);
@@ -91,10 +95,10 @@ function loadone_sp_cungloai($id_sp, $id_dm)
     $dssp = pdo_query($sql);
     return $dssp;; //co ket qua tra ve phai return
 }
-function tangluotxem($id_sp)
+function tangluotxem($id_pro)
 {
-    $onesp = loadone_sp($id_sp);
+    $onesp = loadone_pro($id_pro);
     $luotxem = $onesp['luot_xem'] + 1;
-    $sql = "update sanpham set luot_xem='" . $luotxem . "' where id_sp =" . $id_sp;
+    $sql = "update sanpham set luot_xem='" . $luotxem . "' where id_sp =" . $id_pro;
     pdo_execute($sql);
 }

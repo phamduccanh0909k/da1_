@@ -71,8 +71,13 @@ if (isset($_GET['act'])) {
 
       //Product
     case 'list_pro':
+      if (isset($_POST['listok']) && ($_POST['listok'])) {
+        $id_cat = $_POST['id_cat'];
+    } else {
+        $id_cat = 0;
+    }
       $dslh = loadall_cat();
-      $dssp = loadall_pro();
+      $dssp = loadall_pro($id_cat);
       include("product/list-product.php");
       break;
     case 'add_pro':
@@ -100,8 +105,45 @@ if (isset($_GET['act'])) {
       $dslh = loadall_cat();
       include("product/add-product.php");
       break;
-    case 'updateProduct':
+    case 'delete_pro':
+      if (isset($_GET['id_pro']) && ($_GET['id_pro']) > 0) {
+        delete_pro($_GET['id_pro']);
+      }
+      $dssp = loadall_pro();
+
+      include "product/list-product.php";
+      break;
+    case 'edit_pro':
+      if (isset($_GET['id_pro']) && ($_GET['id_pro']) > 0) {
+
+        $suasp = loadone_pro($_GET['id_pro']);
+      }
+      $dslh = loadall_cat();
       include("product/update-product.php");
+      break;
+    case 'update_pro':
+      if (isset($_POST['edit']) && ($_POST['edit'])) {
+        $name_pro = $_POST['name_pro'];
+        $id_pro = $_POST['id_pro'];
+        $description = $_POST['description'];
+        $discount = $_POST['discount'];
+        $price = $_POST['price'];
+        $size = $_POST['size'];
+        $id_cat = $_POST['id_cat'];
+        $file = $_FILES['image']['name'];
+        $target_dir = "../upload/";
+        $target_file = $target_dir . basename($_FILES['image']["name"]);
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+          // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        } else {
+          // echo "Sorry, there was an error uploading your file.";
+        }
+        update_pro($id_pro, $name_pro, $file, $description, $discount, $price, $size, $id_cat);
+        $tbao = 'Sua data thanh cong';
+      }
+      $dslh = loadall_cat();
+      $dssp = loadall_pro();
+      include "product/list-product.php";
       break;
   }
 } else {
