@@ -3,10 +3,16 @@
   ob_start();
   include_once("_navbar.php");
   include_once("./global.php");
+  include_once "./model/pdo.php";
+  include_once "./model/cat.php";
+  include_once "./model/product.php";
   //phpMailer
   // require_once '../vendor/PHPMailer/src/Exception.php';
   // require_once '../vendor/PHPMailer/src/PHPMailer.php';
   // require_once '../vendor/PHPMailer/src/SMTP.php';
+
+$spnew = loadall_pro_home();
+$dsdm = loadall_cat();
 
   // Controller
   if (isset($_GET['act']) && ($_GET['act']) != "") {
@@ -36,9 +42,9 @@
       case 'reset_password':
         include_once("pages-reset-password.php");
         break;
-        case 'sign_up':
-          include_once("pages-sign-up.php");
-          break;
+      case 'sign_up':
+        include_once("pages-sign-up.php");
+        break;
         // case 'send_mail_form':
         //   require_once("./model/mail.php");
         //   email_form();
