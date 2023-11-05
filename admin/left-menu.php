@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <div id="layoutSidenav_nav">
   <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
     <div class="sb-sidenav-menu">
@@ -61,7 +64,7 @@
         </a>
 
         <!-- slider -->
-        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseLayouts">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseSlider" aria-expanded="false" aria-controls="collapseLayouts">
           <div class="sb-nav-link-icon">
             <i class="fas fa-columns"></i>
           </div>
@@ -71,10 +74,10 @@
           </div>
         </a>
 
-        <div class="collapse" id="collapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+        <div class="collapse" id="collapseSlider" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link" href="?act=list_pro">List Slider</a>
-            <a class="nav-link" href="?act=add_pro">Add Slider</a>
+            <a class="nav-link" href="?act=list_slider">List Slider</a>
+            <a class="nav-link" href="?act=add_slider">Add Slider</a>
           </nav>
         </div>
 

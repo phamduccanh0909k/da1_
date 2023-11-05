@@ -43,7 +43,7 @@ function loadall_sp_top10()
 
 //     $sql .= " order by id_sp desc";
 //     $dssp = pdo_query($sql);
-//     return $dssp; //co ket qua tra ve phai return
+//     return $dssp; //co ket qua tra ve phai returnss
 // }
 
 function loadall_pro($id_cat = 0)

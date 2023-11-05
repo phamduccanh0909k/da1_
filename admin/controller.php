@@ -3,6 +3,7 @@ ob_start();
 include "../model/pdo.php";
 include "../model/cat.php";
 include "../model/product.php";
+include "../model/slider.php";
 
 if (isset($_GET['act'])) {
   $act = $_GET['act'];
@@ -73,9 +74,9 @@ if (isset($_GET['act'])) {
     case 'list_pro':
       if (isset($_POST['listok']) && ($_POST['listok'])) {
         $id_cat = $_POST['id_cat'];
-    } else {
+      } else {
         $id_cat = 0;
-    }
+      }
       $dslh = loadall_cat();
       $dssp = loadall_pro($id_cat);
       include("product/list-product.php");
@@ -144,6 +145,31 @@ if (isset($_GET['act'])) {
       $dslh = loadall_cat();
       $dssp = loadall_pro();
       include "product/list-product.php";
+      break;
+
+      // slider
+    case 'list_slider':
+      $dssl = loadall_slider();
+      include "slider/list-slider.php";
+      break;
+    case 'add_slider':
+      if (isset($_POST['them']) && ($_POST['them'])) {
+        $name_slider = $_POST['name_slider'];
+        $file = $_FILES['image']['name'];
+        $target_dir = "../upload/";
+        $target_file = $target_dir . basename($_FILES['image']["name"]);
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+          // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        } else {
+          // echo "Sorry, there was an error uploading your file.";
+        }
+        if ($name_slider != "") {
+          insert_slider($file, $name_slider);
+          $tbao = 'Them data thanh cong';
+          header("location:index.php?act=list_slider");
+        }
+      }
+      include("slider/add-slider.php");
       break;
   }
 } else {
