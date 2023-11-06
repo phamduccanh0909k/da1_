@@ -171,14 +171,41 @@ if (isset($_GET['act'])) {
       }
       include("slider/add-slider.php");
       break;
-      case 'delete_slider':
-        if (isset($_GET['id_slider']) && ($_GET['id_slider']) > 0) {
-          delete_slider($_GET['id_slider']);
+    case 'delete_slider':
+      if (isset($_GET['id_slider']) && ($_GET['id_slider']) > 0) {
+        delete_slider($_GET['id_slider']);
+      }
+      $dssl = loadall_slider();
+
+      include "slider/list-slider.php";
+      break;
+
+    case 'edit_slider':
+      if (isset($_GET['id_slider']) && ($_GET['id_slider']) > 0) {
+
+        $suasl = loadone_slider($_GET['id_slider']);
+      }
+
+      include "slider/update-slider.php";
+      break;
+    case 'update_slider':
+      if (isset($_POST['edit']) && ($_POST['edit'])) {
+        $name_slider = $_POST['name_slider'];
+        $id_slider = $_POST['id_slider'];
+        $file = $_FILES['image']['name'];
+        $target_dir = "../upload/";
+        $target_file = $target_dir . basename($_FILES['image']["name"]);
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+          // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        } else {
+          // echo "Sorry, there was an error uploading your file.";
         }
-        $dssl = loadall_slider();
-  
-        include "slider/list-slider.php";
-        break;
+        update_slider($name_slider, $file, $id_slider);
+        $tbao = 'Sua data thanh cong';
+      }
+      $dssl = loadall_slider();
+      include "slider/list-slider.php";
+      break;
   }
 } else {
   include("dashboard.php");
