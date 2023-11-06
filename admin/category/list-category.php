@@ -29,7 +29,7 @@
               $xoadm = "index.php?act=delete_cat&id_cat=" . $id_cat;
               $hinhpath = "../upload/" . $img_cat;
               if (is_file($hinhpath)) {
-                $hinh = "<img src='" . $hinhpath . "' height='90' width='300'>";
+                $hinh = "<img src='" . $hinhpath . "' height='100' width='300'>";
               } else {
                 $hinh = "No photo";
               }
