@@ -1,3 +1,9 @@
+<style>
+  #img{
+    height: 300px;
+    width: 100%;
+  }
+</style>
 <!-- Products Start -->
 <div class="container-fluid pt-5">
   <!-- Title -->
@@ -55,7 +61,7 @@
        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
          <h6 class="text-truncate mb-3">'.$name_pro.'</h6>
          <div class="d-flex justify-content-center">
-           <h6>' . number_format($price, 0, ",", ".") . '$' . '</h6>
+           <h6>' . number_format($tt, 0, ",", ".") . '$' . '</h6>
            <h6 class="text-muted ml-2"><del>' . number_format($price, 0, ",", ".") . '$' . '</del></h6>
          </div>
        </div>
