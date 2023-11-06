@@ -1,3 +1,9 @@
+<style>
+  #img{
+    height: 300px;
+    width: 100%;
+  }
+</style>
 <!-- Products Start -->
 <div class="container-fluid pt-5">
   <!-- Title -->
