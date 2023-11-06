@@ -21,11 +21,11 @@ function loadall_pro_home()
     return $dssp; //co ket qua tra ve phai return
 }
 
-function loadall_sp_top10()
+function loadall_pro_top8()
 {
     //cach noi chuoi sql
     //phai co cach khoang
-    $sql = "select * from sanpham where 1 order by luot_xem desc limit 0,10";
+    $sql = "select * from product where 1 order by view desc limit 0,8";
     $dssp = pdo_query($sql);
     return $dssp; //co ket qua tra ve phai return
 }
@@ -98,7 +98,7 @@ function loadone_sp_cungloai($id_sp, $id_dm)
 function tangluotxem($id_pro)
 {
     $onesp = loadone_pro($id_pro);
-    $luotxem = $onesp['luot_xem'] + 1;
-    $sql = "update sanpham set luot_xem='" . $luotxem . "' where id_sp =" . $id_pro;
+    $view = $onesp['view'] + 1;
+    $sql = "update product set view='" . $view . "' where id_pro =" . $id_pro;
     pdo_execute($sql);
 }

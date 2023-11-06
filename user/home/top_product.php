@@ -9,7 +9,7 @@
   <!-- Title -->
   <div class="text-center mb-4">
     <h2 class="section-title px-5">
-      <span class="px-2">List Products</span>
+      <span class="px-2">Top Products</span>
     </h2>
   </div>
 
@@ -47,10 +47,9 @@
   <div class="row px-xl-5 pb-3">
     <!-- Product -->
     <?php
-      // $i = 0;
-      foreach ($spnew as $s) {
-        extract($s);
-        // $linksp = "index.php?act=ctietsp&id_sp=" . $id_sp;
+      foreach ($dst8 as $sp) {
+        extract($sp);
+        $linksp = "index.php?act=ctietsp&id_pro=" . $id_pro;
         $tt = $price - (($price * $discount) / 100);
         $hinh = $img_path . $img;
      echo '<div class="col-lg-3 col-md-6 col-sm-12 pb-1">

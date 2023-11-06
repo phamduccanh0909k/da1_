@@ -11,8 +11,9 @@
   // require_once '../vendor/PHPMailer/src/PHPMailer.php';
   // require_once '../vendor/PHPMailer/src/SMTP.php';
 
-$spnew = loadall_pro_home();
-$dsdm = loadall_cat();
+  $spnew = loadall_pro_home();
+  $dsdm = loadall_cat();
+  $dst8 = loadall_pro_top8();
 
   // Controller
   if (isset($_GET['act']) && ($_GET['act']) != "") {
