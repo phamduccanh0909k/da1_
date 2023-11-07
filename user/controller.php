@@ -7,6 +7,7 @@
   include_once "./model/cat.php";
   include_once "./model/product.php";
   include_once "./model/size.php";
+  include_once "./model/slider.php";
   //phpMailer
   // require_once '../vendor/PHPMailer/src/Exception.php';
   // require_once '../vendor/PHPMailer/src/PHPMailer.php';
@@ -15,7 +16,7 @@
   $spnew = loadall_pro_home();
   $dsdm = loadall_cat();
   $dst8 = loadall_pro_top8();
-
+  $dssl = loadall_slider();
   // Controller
   if (isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];
