@@ -1,23 +1,36 @@
+<style>
+  h2{
+    color: red;
+  }
+</style>
 <!-- Shop Detail Start -->
 <div class="container-fluid py-5">
   <div class="row px-xl-5">
     <div class="col-lg-5 pb-5">
       <!-- List img -->
       <div id="product-carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner border">
-          <div class="carousel-item active">
-            <img class="w-100 h-100" src="user/img/product-1.jpg" alt="Image" />
-          </div>
-          <div class="carousel-item">
-            <img class="w-100 h-100" src="user/img/product-2.jpg" alt="Image" />
-          </div>
-          <div class="carousel-item">
-            <img class="w-100 h-100" src="user/img/product-3.jpg" alt="Image" />
-          </div>
-          <div class="carousel-item">
-            <img class="w-100 h-100" src="user/img/product-4.jpg" alt="Image" />
-          </div>
+        <?php
+        extract($onesp);
+        ?>
+        <?php
+        $tt = $price - (($price * $discount) / 100);
+        $hinh = $img_path . $img;
+        echo ' <div class="carousel-inner border">
+        <div class="carousel-item active">
+          <img class="w-100 h-100" src="' . $hinh . '" alt="Image" />
         </div>
+        <div class="carousel-item">
+          <img class="w-100 h-100" src="' . $hinh . '" alt="Image" />
+        </div>
+        <div class="carousel-item">
+          <img class="w-100 h-100" src="' . $hinh . '" alt="Image" />
+        </div>
+        <div class="carousel-item">
+          <img class="w-100 h-100" src="' . $hinh . '" alt="Image" />
+        </div>
+      </div>';
+        ?>
+
         <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
           <i class="fa fa-2x fa-angle-left text-dark"></i>
         </a>
@@ -29,7 +42,7 @@
 
     <!-- Product information -->
     <div class="col-lg-7 pb-5">
-      <h3 class="font-weight-semi-bold">Colorful Stylish Shirt</h3>
+      <h3 class="font-weight-semi-bold"><?= $name_pro ?></h3>
       <div class="d-flex mb-3">
         <div class="text-primary mr-2">
           <small class="fas fa-star"></small>
@@ -40,40 +53,34 @@
         </div>
         <small class="pt-1">(50 Reviews)</small>
       </div>
-      <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
+      <h3 class="font-weight-semi-bold mb-4"><?= number_format($tt, 0, ",", ".") . '$' ?></h3>
       <p class="mb-4">
-        Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam
-        stet sit clita ea. Sanc invidunt ipsum et, labore clita lorem magna
-        lorem ut. Erat lorem duo dolor no sea nonumy. Accus labore stet, est
-        lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum
-        kasd rebum.
+       <h2><del><?= number_format($price, 0, ",", ".") . '$' ?></del></h2>
+     
       </p>
 
       <!-- Size -->
       <div class="d-flex mb-3">
         <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-        <form>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="size-1" name="size" />
-            <label class="custom-control-label" for="size-1">XS</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
+        <select class="form-select" name="id_size">
+          <?php
+          if (isset($dss)) {
+            foreach ($dss as $ds) {
+              if ($ds['id_size'] == $id_size) $s = "selected";
+              else $s = "";
+              echo ' <div class="custom-control custom-radio custom-control-inline">
+              <option value="' . $ds['id_size'] . '" ' . $s . '>' . $ds['name_size'] . '</option>
+            </div>';
+            }
+          } else {
+            // Xử lý khi biến $dss chưa được khởi tạo
+          }
+          ?>
+          <!-- <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="size-2" name="size" />
             <label class="custom-control-label" for="size-2">S</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="size-3" name="size" />
-            <label class="custom-control-label" for="size-3">M</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="size-4" name="size" />
-            <label class="custom-control-label" for="size-4">L</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="size-5" name="size" />
-            <label class="custom-control-label" for="size-5">XL</label>
-          </div>
-        </form>
+          </div> -->
+        </select>
       </div>
 
       <!-- Color -->
@@ -153,24 +160,7 @@
         <div class="tab-pane fade show active" id="tab-pane-1">
           <h4 class="mb-3">Product Description</h4>
           <p>
-            Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea.
-            Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam
-            ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed
-            sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
-            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum
-            accusam sadipscing, eos dolores sit no ut diam consetetur duo justo
-            est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor
-            accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
-            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea
-            invidunt.
-          </p>
-          <p>
-            Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum.
-            Amet dolore tempor consetetur sed lorem dolor sit lorem tempor.
-            Gubergren amet amet labore sadipscing clita clita diam clita. Sea
-            amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum.
-            Ea erat sed et diam takimata sed justo. Magna takimata justo et amet
-            magna et.
+          <?= $description ?>
           </p>
         </div>
 
