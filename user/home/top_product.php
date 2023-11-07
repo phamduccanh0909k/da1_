@@ -1,5 +1,5 @@
 <style>
-  #img{
+  #img {
     height: 300px;
     width: 100%;
   }
@@ -31,7 +31,8 @@
         </form>
         <!-- Sort -->
         <div class="dropdown ml-4">
-          <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Sort by
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
@@ -47,32 +48,32 @@
   <div class="row px-xl-5 pb-3">
     <!-- Product -->
     <?php
-      foreach ($dst8 as $sp) {
-        extract($sp);
-        $linksp = "index.php?act=ctietsp&id_pro=" . $id_pro;
-        $tt = $price - (($price * $discount) / 100);
-        $hinh = $img_path . $img;
-     echo '<div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+    foreach ($dst8 as $sp) {
+      extract($sp);
+      $linksp = "index.php?act=pro_detail&id_pro=" . $id_pro;
+      $tt = $price - (($price * $discount) / 100);
+      $hinh = $img_path . $img;
+      echo '<div class="col-lg-3 col-md-6 col-sm-12 pb-1">
      <div class="card product-item border-0 mb-4">
        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-         <img class="img-fluid w-300" src="'.$hinh.'" alt="" id="img" />
+       <a href="' . $linksp . '">  <img class="img-fluid w-300" src="' . $hinh . '" alt="" id="img" /></a>
        </div>
        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-         <h6 class="text-truncate mb-3">'.$name_pro.'</h6>
+         <h6 class="text-truncate mb-3">' . $name_pro . '</h6>
          <div class="d-flex justify-content-center">
            <h6>' . number_format($tt, 0, ",", ".") . '$' . '</h6>
            <h6 class="text-muted ml-2"><del>' . number_format($price, 0, ",", ".") . '$' . '</del></h6>
          </div>
        </div>
        <div class="card-footer d-flex justify-content-between bg-light border">
-         <a href="?act=detail" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+         <a href="' . $linksp . '" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
            Cart</a>
        </div>
      </div>
    </div>';
-      }
-      ?>
+    }
+    ?>
   </div>
 </div>
 <!-- Products End -->
