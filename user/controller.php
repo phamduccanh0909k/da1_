@@ -6,6 +6,7 @@
   include_once "./model/pdo.php";
   include_once "./model/cat.php";
   include_once "./model/product.php";
+  include_once "./model/size.php";
   //phpMailer
   // require_once '../vendor/PHPMailer/src/Exception.php';
   // require_once '../vendor/PHPMailer/src/PHPMailer.php';
@@ -22,13 +23,14 @@
       case 'home':
         include_once("user/home/index.php");
         break;
-      case 'detail':
+      case 'pro_detail':
         if (isset($_GET['id_pro']) && ($_GET['id_pro']) > 0) {
           $onesp = loadone_pro($_GET['id_pro']);
+          $dss = loadall_size();
           extract($onesp);
-          $spcl = loadone_sp_cungloai($_GET['id_pro'], $id_cat);
+          // $spcl = loadone_sp_cungloai($_GET['id_pro'], $id_cat);
           tangluotxem($_GET['id_pro']);
-          include_once("detail.php");
+          include "detail.php";
         } else {
           include "user/home/index.php";
         }
