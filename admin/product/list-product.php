@@ -58,7 +58,7 @@
                   <td>' .  number_format($price, 0, ",", ".") . '$' . '</td>
                   <td>' . $discount . '</td>
                   <td>' . $description . '</td>
-                  <td>' . $size . '</td>
+                  <td>' . $name_size . '</td>
                   <td>
                   <a href="' . $suasp . '" class="btn btn-warning"><input type="button" value="UPDATE" /></a>
                   <a href="' . $xoasp . '" class="btn btn-danger"><input type="button" value="DELETE" onclick ="return confirm(\'ban co chac chan muon xoa?\')" /></a>

@@ -28,7 +28,7 @@
           $onesp = loadone_pro($_GET['id_pro']);
           $dss = loadall_size();
           extract($onesp);
-          // $spcl = loadone_sp_cungloai($_GET['id_pro'], $id_cat);
+          $spcl = loadone_sp_cungloai($_GET['id_pro'], $id_cat);
           tangluotxem($_GET['id_pro']);
           include "detail.php";
         } else {

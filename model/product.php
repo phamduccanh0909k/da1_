@@ -1,8 +1,8 @@
 <?php
-function insert_pro($name_pro, $file, $des, $dis, $price, $size, $id_cat)
+function insert_pro($name_pro, $file, $des, $dis, $price, $id_size, $id_cat)
 {
-    $sql = "insert into product(name_pro,img,description,discount,price,size,id_cat) 
-    values(' $name_pro ','$file','$des','$dis','$price','$size','$id_cat')";
+    $sql = "insert into product(name_pro,img,description,discount,price,id_size,id_cat) 
+    values(' $name_pro ','$file','$des','$dis','$price','$id_size','$id_cat')";
     pdo_execute($sql);
 }
 
@@ -50,7 +50,7 @@ function loadall_pro($id_cat = 0)
 {
     //cach noi chuoi sql
     //phai co cach khoang
-    $sql = "select * from product pro join category cat on pro.id_cat = cat.id_cat where 1";
+    $sql = "select * from product pro join category cat on pro.id_cat = cat.id_cat join size s on pro.id_size=s.id_size where 1";
     if ($id_cat > 0) {
         $sql .= " and pro.id_cat = '" . $id_cat . "'";
     }
@@ -75,23 +75,23 @@ function load_ten_dm($id_dm)
         return "";
     }
 }
-function update_pro($id_pro, $name_pro, $file, $description, $discount, $price, $size, $id_cat)
+function update_pro($id_pro, $name_pro, $file, $description, $discount, $price, $id_size, $id_cat)
 {
     if ($file != "") {
         $sql = "update product set name_pro='" . $name_pro . "',img='" . $file . "',
         description='" . $description . "',discount='" . $discount . "',price='" . $price . "',
-        size='" . $size . "',id_cat='" . $id_cat . "' where id_pro=" . $id_pro;
+        id_size='" . $id_size . "',id_cat='" . $id_cat . "' where id_pro=" . $id_pro;
     } else {
         $sql = "update product set name_pro='" . $name_pro . "',
         description='" . $description . "',discount='" . $discount . "',price='" . $price . "',
-        size='" . $size . "',id_cat='" . $id_cat . "' where id_pro=" . $id_pro;
+        id_size='" . $id_size . "',id_cat='" . $id_cat . "' where id_pro=" . $id_pro;
     }
 
     pdo_execute($sql);
 }
-function loadone_sp_cungloai($id_sp, $id_dm)
+function loadone_sp_cungloai($id_pro, $id_cat)
 {
-    $sql = "select * from sanpham where id_dm=" . $id_dm . " and id_sp <>" . $id_sp;
+    $sql = "select * from product where id_cat=" . $id_cat . " and id_pro <>" . $id_pro;
     $dssp = pdo_query($sql);
     return $dssp;; //co ket qua tra ve phai return
 }
