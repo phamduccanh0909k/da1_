@@ -32,3 +32,9 @@ function update_cat($name_cat, $file, $id_cat)
 
     pdo_execute($sql);
 }
+function loadall_pro_count($id_cat)
+{
+    $sql = "select * from product where id_cat=" . $id_cat;
+    $bill = pdo_query($sql);
+    return sizeof($bill); //dem so lg mat hang
+}
