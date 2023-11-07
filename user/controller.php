@@ -23,7 +23,15 @@
         include_once("user/home/index.php");
         break;
       case 'detail':
-        include_once("detail.php");
+        if (isset($_GET['id_pro']) && ($_GET['id_pro']) > 0) {
+          $onesp = loadone_pro($_GET['id_pro']);
+          extract($onesp);
+          $spcl = loadone_sp_cungloai($_GET['id_pro'], $id_cat);
+          tangluotxem($_GET['id_pro']);
+          include_once("detail.php");
+        } else {
+          include "user/home/index.php";
+        }
         break;
       case 'shop':
         include_once("shop.php");
