@@ -35,7 +35,7 @@
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Size</label>
+      <label class="form-label">ID_Size</label>
       <input type="number" class="form-control" name="size">
     </div>
 

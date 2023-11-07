@@ -1,5 +1,10 @@
 <style>
-  h2{
+  #img {
+    height: 300px;
+    width: 100%;
+  }
+
+  h2 {
     color: red;
   }
 </style>
@@ -55,8 +60,8 @@
       </div>
       <h3 class="font-weight-semi-bold mb-4"><?= number_format($tt, 0, ",", ".") . '$' ?></h3>
       <p class="mb-4">
-       <h2><del><?= number_format($price, 0, ",", ".") . '$' ?></del></h2>
-     
+      <h2><del><?= number_format($price, 0, ",", ".") . '$' ?></del></h2>
+
       </p>
 
       <!-- Size -->
@@ -160,7 +165,7 @@
         <div class="tab-pane fade show active" id="tab-pane-1">
           <h4 class="mb-3">Product Description</h4>
           <p>
-          <?= $description ?>
+            <?= $description ?>
           </p>
         </div>
 
@@ -241,23 +246,33 @@
     <!-- Realted Products -->
     <div class="col">
       <div class="owl-carousel related-carousel">
-        <div class="card product-item border-0">
+        <?php
+        foreach ($spcl as $cl) {
+          extract($cl);
+          $linksp = "index.php?act=pro_detail&id_pro=" . $id_pro;
+          $tt = $price - (($price * $discount) / 100);
+          $hinh = $img_path . $img;
+          echo '<div class="card product-item border-0">
           <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-            <img class="img-fluid w-100" src="user/img/product-1.jpg" alt="" />
+          <a href="' . $linksp . '"><img class="img-fluid w-100" src="' . $hinh . '" alt="" id="img"/></a>
           </div>
           <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+          <a href="' . $linksp . '"><h6 class="text-truncate mb-3">' . $name_pro . '</h6></a>
             <div class="d-flex justify-content-center">
-              <h6>$123.00</h6>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+              <h6>' .  number_format($tt, 0, ",", ".") . '$' . '</h6>
+              <h6 class="text-muted ml-2"><del>' . number_format($price, 0, ",", ".") . '$' . '</del></h6>
             </div>
           </div>
           <div class="card-footer d-flex justify-content-between bg-light border">
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+            <a href="' . $linksp . '" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
             <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
               Cart</a>
           </div>
-        </div>
+        </div>';
+        }
+        ?>
+
+
         <div class="card product-item border-0">
           <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
             <img class="img-fluid w-100" src="user/img/product-2.jpg" alt="" />

@@ -49,8 +49,8 @@ if (is_file($hinhpath)) {
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Size</label>
-      <input type="number" class="form-control" name="size" value="<?= $size ?>">
+      <label class="form-label">Id_Size</label>
+      <input type="number" class="form-control" name="size" value="<?= $id_size ?>">
     </div>
 
     <div class="mb-3">
