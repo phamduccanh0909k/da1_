@@ -36,9 +36,19 @@
         <i class="fas fa-shopping-cart text-primary"></i>
         <span class="badge">0</span>
       </a>
-      <a href="?act=login" class="btn border">
-        <i class="far fa-user text-primary"></i>
-      </a>
+      <?php
+      if (isset($_SESSION['user'])) {
+      ?>
+        <a href="?act=account" class="btn border">
+          <i class="far fa-user text-primary"></i>
+        </a>
+      <?php
+      } else {
+      ?>
+        <a href="?act=login" class="btn border">
+          <i class="far fa-user text-primary"></i>
+        </a>
+      <?php } ?>
     </div>
   </div>
 </div>

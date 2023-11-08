@@ -1,6 +1,7 @@
   <?php
   // Navbar
   ob_start();
+  session_start();
   include_once("_navbar.php");
   include_once("./global.php");
   include_once "./model/pdo.php";
@@ -37,16 +38,16 @@
           include "user/home/index.php";
         }
         break;
-        case 'product_cat':
-          if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
-              $id_cat = $_GET['id_cat'];
-          } else {
-              $id_cat = 0;
-          }
-          $dssp = loadall_pro_cat($id_cat);
-          $name_cat = load_ten_dm($id_cat);
-          include "product_cat.php";
-          break;
+      case 'product_cat':
+        if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
+          $id_cat = $_GET['id_cat'];
+        } else {
+          $id_cat = 0;
+        }
+        $dssp = loadall_pro_cat($id_cat);
+        $name_cat = load_ten_dm($id_cat);
+        include "product_cat.php";
+        break;
       case 'shop':
         include_once("shop.php");
         break;
@@ -59,9 +60,6 @@
       case 'checkout':
         include_once("checkout.php");
         break;
-      case 'login':
-        include_once("login.php");
-        break;
       case 'reset_password':
         include_once("pages-reset-password.php");
         break;
@@ -69,25 +67,44 @@
         if (isset($_POST['sign_up']) && ($_POST['sign_up'])) {
           $username = $_POST['username'];
           $password = $_POST['password'];
-          $ho_ten = $_POST['hoten'];
-          $file = $_FILES['hinh']['name'];
+          $name = $_POST['name'];
+          $address = $_POST['address'];
+          $phone = $_POST['phone'];
+          $email = $_POST['email'];
+          $file = $_FILES['image']['name'];
           $target_dir = "./upload/";
-          $target_file = $target_dir . basename($_FILES['hinh']["name"]);
-          if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-              // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+          $target_file = $target_dir . basename($_FILES['image']["name"]);
+          if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
           } else {
-              // echo "Sorry, there was an error uploading your file.";
+            // echo "Sorry, there was an error uploading your file.";
           }
           //  $hinh=$_POST['hinh'];
-          $email = $_POST['email'];
-          $address = $_POST['address'];
-          $tel = $_POST['tel'];
-
-          insert_tk($username, $password, $ho_ten, $file, $email, $address, $tel);
+          insert_tk($username, $password, $name, $address, $phone, $email, $file);
           $tbao = "Da dang ky thanh cong! Vui long dang nhap de thuc hien chuc nang comment hoac dat hang!!";
-      }
+        }
         include_once("pages-sign-up.php");
         break;
+      case 'login':
+        if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $check_user = check_user($username, $password);
+          if (is_array($check_user)) {
+            $_SESSION['user'] = $check_user;
+            // header('Location:login_sucsess.php');
+            include "login_sucsess.php";
+            // $tbao = "Ban da dang nhap thanh cong!";
+          } else {
+            $tbao = "Tai khoan khong ton tai. Vui long kiem tra hoac dang ky!";
+          }
+        }
+        include "login.php";
+        break;
+        case 'account':
+          
+          include 'account.php';
+          break;
         // case 'send_mail_form':
         //   require_once("./model/mail.php");
         //   email_form();
@@ -99,7 +116,6 @@
   } else {
     include_once("user/home/index.php");
   }
-
   // Footer
   include_once("_footer.php");
   ?>

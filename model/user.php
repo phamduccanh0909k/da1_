@@ -1,13 +1,13 @@
 <?php
-function insert_tk($username, $password, $ho_ten, $file, $email, $address, $tel)
+function insert_tk($username, $password, $name, $address, $phone, $email, $file)
 {
-    $sql = "insert into taikhoan(username,password,ho_ten,hinh,email,address,tel)
-     values('$username','$password','$ho_ten','$file','$email','$address','$tel')";
+    $sql = "insert into user(username,password,name,address,phone,email,image)
+     values('$username','$password','$name','$address','$phone','$email','$file')";
     pdo_execute($sql);
 }
 function check_user($username, $password)
 {
-    $sql = "select * from taikhoan where username='" . $username . "' AND password='" . $password . "'";
+    $sql = "select * from user where username='" . $username . "' AND password='" . $password . "'";
     $sp = pdo_query_one($sql);
     return $sp;
     // return pdo_query_all($sql); //co ket qua tra ve phai return
