@@ -11,6 +11,7 @@
     <?php
     foreach ($dsdm as $ds) {
       extract($ds);
+      $linkdm = "index.php?act=product_cat&id_cat=" . $id_cat;
       $hinh = $img_path . $img_cat;
       $countsp = loadall_pro_count($ds['id_cat']);
       // $linkdm = "index.php?act=sanpham&id_dm=" . $id_dm;
@@ -19,7 +20,7 @@
           <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px">
             <p class="text-right">' . $countsp . ' products</p>
             <a href="" class="cat-img position-relative overflow-hidden mb-3">
-              <img class="img-fluid" src="' . $hinh . '" alt="" id="img"/>
+            <a href="' . $linkdm . '">  <img class="img-fluid" src="' . $hinh . '" alt="" id="img"/></a>
             </a>
             <h5 class="font-weight-semi-bold m-0">' . $name_cat . '</h5>
           </div>

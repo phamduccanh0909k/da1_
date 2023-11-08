@@ -29,22 +29,19 @@ function loadall_pro_top8()
     $dssp = pdo_query($sql);
     return $dssp; //co ket qua tra ve phai return
 }
-// function loadall_sp($kyw = "", $id_dm = 0)
-// {
-//     //cach noi chuoi sql
-//     //phai co cach khoang
-//     $sql = "select * from sanpham where 1";
-//     if ($kyw != "") {
-//         $sql .= " and name like '%" . $kyw . "%' ";
-//     }
-//     if ($id_dm > 0) {
-//         $sql .= " and id_dm = '" . $id_dm . "'";
-//     }
+function loadall_pro_cat($id_cat = 0)
+{
+    //cach noi chuoi sql
+    //phai co cach khoang
+    $sql = "select * from product where 1";
+    if ($id_cat > 0) {
+        $sql .= " and id_cat = '" . $id_cat . "'";
+    }
 
-//     $sql .= " order by id_sp desc";
-//     $dssp = pdo_query($sql);
-//     return $dssp; //co ket qua tra ve phai returnss
-// }
+    $sql .= " order by id_pro desc";
+    $dssp = pdo_query($sql);
+    return $dssp; //co ket qua tra ve phai returnss
+}
 
 function loadall_pro($id_cat = 0)
 {
@@ -64,13 +61,13 @@ function loadone_pro($id_pro)
     $suasp = pdo_query_one($sql);
     return $suasp; //co ket qua tra ve phai return
 }
-function load_ten_dm($id_dm)
+function load_ten_dm($id_cat)
 {
-    if ($id_dm > 0) {
-        $sql = "select * from danhmuc where id_dm=" . $id_dm;
+    if ($id_cat > 0) {
+        $sql = "select * from category where id_cat=" . $id_cat;
         $dm = pdo_query_one($sql);
         extract($dm);
-        return $name; //co ket qua tra ve phai return
+        return $name_cat; //co ket qua tra ve phai return
     } else {
         return "";
     }

@@ -37,6 +37,16 @@
           include "user/home/index.php";
         }
         break;
+        case 'product_cat':
+          if (isset($_GET['id_cat']) && ($_GET['id_cat']) > 0) {
+              $id_cat = $_GET['id_cat'];
+          } else {
+              $id_cat = 0;
+          }
+          $dssp = loadall_pro_cat($id_cat);
+          $name_cat = load_ten_dm($id_cat);
+          include "product_cat.php";
+          break;
       case 'shop':
         include_once("shop.php");
         break;
@@ -76,8 +86,6 @@
           insert_tk($username, $password, $ho_ten, $file, $email, $address, $tel);
           $tbao = "Da dang ky thanh cong! Vui long dang nhap de thuc hien chuc nang comment hoac dat hang!!";
       }
-      include "view/taikhoan/dkytv.php";
-      break;
         include_once("pages-sign-up.php");
         break;
         // case 'send_mail_form':
