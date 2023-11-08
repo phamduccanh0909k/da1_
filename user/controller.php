@@ -8,6 +8,7 @@
   include_once "./model/product.php";
   include_once "./model/size.php";
   include_once "./model/slider.php";
+  include_once "./model/user.php";
   //phpMailer
   // require_once '../vendor/PHPMailer/src/Exception.php';
   // require_once '../vendor/PHPMailer/src/PHPMailer.php';
@@ -55,6 +56,28 @@
         include_once("pages-reset-password.php");
         break;
       case 'sign_up':
+        if (isset($_POST['sign_up']) && ($_POST['sign_up'])) {
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $ho_ten = $_POST['hoten'];
+          $file = $_FILES['hinh']['name'];
+          $target_dir = "./upload/";
+          $target_file = $target_dir . basename($_FILES['hinh']["name"]);
+          if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+              // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+          } else {
+              // echo "Sorry, there was an error uploading your file.";
+          }
+          //  $hinh=$_POST['hinh'];
+          $email = $_POST['email'];
+          $address = $_POST['address'];
+          $tel = $_POST['tel'];
+
+          insert_tk($username, $password, $ho_ten, $file, $email, $address, $tel);
+          $tbao = "Da dang ky thanh cong! Vui long dang nhap de thuc hien chuc nang comment hoac dat hang!!";
+      }
+      include "view/taikhoan/dkytv.php";
+      break;
         include_once("pages-sign-up.php");
         break;
         // case 'send_mail_form':

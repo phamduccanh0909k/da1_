@@ -38,7 +38,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="m-sm-4">
-                    <form>
+                    <form method="post" action="?act=sign_up" enctype="multipart/form-data">
                       <div class="form-group">
                         <label>Name</label>
                         <input
@@ -76,7 +76,7 @@
                         />
                       </div>
                       <div class="text-center mt-3">
-                        <a href="#" class="btn btn-lg btn-primary">Sign up</a>
+                        <input type="submit" href="#" class="btn btn-lg btn-primary" name="sign_up" value="Sign up">
                         <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
                       </div>
                     </form>
