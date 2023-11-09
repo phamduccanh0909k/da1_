@@ -94,8 +94,8 @@ ob_start();
 
         <div class="collapse" id="collapseBrand" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link" href="?act=list_brand">List Slider</a>
-            <a class="nav-link" href="?act=add_brand">Add Slider</a>
+            <a class="nav-link" href="?act=list_brand">List Brand</a>
+            <a class="nav-link" href="?act=add_brand">Add Brand</a>
           </nav>
         </div>
 
