@@ -51,7 +51,7 @@
                       <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
                       <div class="d-flex mt-2 justify-content-between">
                         <small>
-                          <a href="?act=reset_password">Forgot password?</a>
+                          <a href="?act=forgot_password">Forgot password?</a>
                         </small>
                         <br />
                         <small>

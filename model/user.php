@@ -28,7 +28,7 @@ function update_taikhoan($id_user, $username, $password, $name, $address, $phone
 }
 function check_email($email)
 {
-    $sql = "select * from taikhoan where email='" . $email . "'";
+    $sql = "select * from user where email='" . $email . "'";
     $sp = pdo_query_one($sql);
     return $sp;
     // return pdo_query_all($sql); //co ket qua tra ve phai return

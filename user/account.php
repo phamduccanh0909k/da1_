@@ -65,7 +65,7 @@
                                         <?php if ($id_role == 1) { ?>
                                             <li><a href="index.php?act=mybill">My order </a></li>
                                         <?php } ?>
-                                        <li> <a href="?act=reset_password">Forgot password?</a></li>
+                                        <li> <a href="?act=forgot_password">Forgot password?</a></li>
                                         <li> <a href="?act=edit_account">Edit account </a> </li>
                                         <?php if ($id_role == 2) { ?>
                                             <li> <a href="admin/index.php">Login admin </a></li>

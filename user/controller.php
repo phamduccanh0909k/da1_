@@ -56,9 +56,6 @@
       case 'checkout':
         include_once("checkout.php");
         break;
-      case 'reset_password':
-        include_once("pages-reset-password.php");
-        break;
       case 'sign_up':
         if (isset($_POST['sign_up']) && ($_POST['sign_up'])) {
           $username = $_POST['username'];
@@ -124,6 +121,18 @@
           $tb = "Edit account sucsess!";
         }
         include "edit_account.php";
+        break;
+      case 'forgot_password':
+        if (isset($_POST['send_email']) && ($_POST['send_email'])) {
+          $email = $_POST['email'];
+          $check_email =  check_email($email);
+          if (is_array($check_email)) {
+            $tbao = "Your password is:" . $check_email['password'];
+          } else {
+            $tbao = "Email no have!";
+          }
+        }
+        include 'forgot-password.php';
         break;
       default:
         include_once("user/home/index.php");
