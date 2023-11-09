@@ -74,7 +74,7 @@
           }
           //  $hinh=$_POST['hinh'];
           insert_tk($username, $password, $name, $address, $phone, $email, $file);
-          $tbao = "Login sucsess!Please login to do comment or order products!";
+          $tbao = "Sucsess sucsess!Please login to do comment or order products!";
         }
         include_once("pages-sign-up.php");
         break;
@@ -134,6 +134,10 @@
         }
         include 'forgot-password.php';
         break;
+        case 'log_out':
+          session_unset();
+          header('Location:index.php');
+          break;
       default:
         include_once("user/home/index.php");
         break;

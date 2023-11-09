@@ -8,7 +8,7 @@
     <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template" />
     <meta name="author" content="Bootlab" />
 
-    <title>Sign In - AppStack - Admin &amp; Dashboard Template</title>
+    <title>Login_Sucsess - AppStack - Admin &amp; Dashboard Template</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
 </head>
