@@ -183,10 +183,8 @@ if (isset($_GET['act'])) {
 
     case 'edit_slider':
       if (isset($_GET['id_slider']) && ($_GET['id_slider']) > 0) {
-
         $suasl = loadone_slider($_GET['id_slider']);
       }
-
       include "slider/update-slider.php";
       break;
     case 'update_slider':
@@ -207,10 +205,11 @@ if (isset($_GET['act'])) {
       $dssl = loadall_slider();
       include "slider/list-slider.php";
       break;
-      case 'list_account':
-        $dstk = loadall_account();
-        include "account/list_account.php";
-        break;
+      //account
+    case 'list_account':
+      $dstk = loadall_account();
+      include "account/list_account.php";
+      break;
   }
 } else {
   include("dashboard.php");

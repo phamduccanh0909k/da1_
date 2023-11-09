@@ -1,6 +1,6 @@
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">List categories</h1>
+        <h1 class="mt-4">List accounts</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
@@ -44,7 +44,7 @@
                             if ($id_role == 2) {
                                 $xoatk = ''; // Không hiển thị nút xóa cho admin
                             } else {
-                                $xoatk = '<a href="' . $xoatk . '"> <input type="button" value="xoa" onclick ="return confirm(\'ban co chac chan muon xoa?\')" id="x"/></a>';
+                                $xoatk = '<a href="' . $xoatk . '" class="btn btn-danger"><input type="button" value="DELETE" onclick ="return confirm(\'ban co chac chan muon xoa?\')" /></a>';
                             }
                             echo '<tr>
     <td>' . $id_user . '</td>
@@ -56,7 +56,7 @@
  <td>' . $email . '</td>
  <td>' . $hinh . '</td>
  <td>' . $name_role . '</td>
-<td> <a href="' . $suatk . '"><input type="button" value="sua" id="s" /></a> 
+<td> <a href="' . $suatk . '" class="btn btn-warning"><input type="button" value="UPDATE" /></a>
          ' . $xoatk . '</td>
                 </tr>';
                         }
