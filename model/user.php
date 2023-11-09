@@ -12,16 +12,16 @@ function check_user($username, $password)
     return $sp;
     // return pdo_query_all($sql); //co ket qua tra ve phai return
 }
-function update_taikhoan($id_tk, $username, $password, $ho_ten, $file, $email, $address, $tel)
+function update_taikhoan($id_user, $username, $password, $name, $address, $phone, $email, $file)
 {
     if ($file != '') {
-        $sql = "update taikhoan set username='" . $username . "',password='" . $password . "',
-        ho_ten='" . $ho_ten . "',hinh='" . $file . "',email='" . $email . "',
-        address='" . $address . "',tel='" . $tel . "' where id_tk=" . $id_tk;
+        $sql = "update user set username='" . $username . "',password='" . $password . "',
+        name='" . $name . "',address='" . $address . "',phone='" . $phone . "',
+        email='" . $email . "',image='" . $file . "' where id_user=" . $id_user;
     } else {
-        $sql = "update taikhoan set username='" . $username . "',password='" . $password . "',
-        ho_ten='" . $ho_ten . "',email='" . $email . "',
-        address='" . $address . "',tel='" . $tel . "' where id_tk=" . $id_tk;
+        $sql = "update user set username='" . $username . "',password='" . $password . "',
+        name='" . $name . "',address='" . $address . "',phone='" . $phone . "',
+        email='" . $email . "' where id_user=" . $id_user;
     }
 
     pdo_execute($sql);

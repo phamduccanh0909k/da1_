@@ -10,10 +10,6 @@
   include_once "./model/size.php";
   include_once "./model/slider.php";
   include_once "./model/user.php";
-  //phpMailer
-  // require_once '../vendor/PHPMailer/src/Exception.php';
-  // require_once '../vendor/PHPMailer/src/PHPMailer.php';
-  // require_once '../vendor/PHPMailer/src/SMTP.php';
 
   $spnew = loadall_pro_home();
   $dsdm = loadall_cat();
@@ -81,7 +77,7 @@
           }
           //  $hinh=$_POST['hinh'];
           insert_tk($username, $password, $name, $address, $phone, $email, $file);
-          $tbao = "Da dang ky thanh cong! Vui long dang nhap de thuc hien chuc nang comment hoac dat hang!!";
+          $tbao = "Login sucsess!Please login to do comment or order products!";
         }
         include_once("pages-sign-up.php");
         break;
@@ -96,19 +92,39 @@
             include "login_sucsess.php";
             // $tbao = "Ban da dang nhap thanh cong!";
           } else {
-            $tbao = "Tai khoan khong ton tai. Vui long kiem tra hoac dang ky!";
+            $tbao = "Account no have, Please check or sign_up!";
           }
         }
         include "login.php";
         break;
-        case 'account':
-          
-          include 'account.php';
-          break;
-        // case 'send_mail_form':
-        //   require_once("./model/mail.php");
-        //   email_form();
-        // break;
+      case 'account':
+        include 'account.php';
+        break;
+      case 'edit_account':
+        if (isset($_POST['capnhap']) && ($_POST['capnhap'])) {
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $name = $_POST['name'];
+          $address = $_POST['address'];
+          $phone = $_POST['phone'];
+          $email = $_POST['email'];
+          $file = $_FILES['img']['name'];
+          $id_user = $_POST['id_user'];
+          $target_dir = "./upload/";
+          $target_file = $target_dir . basename($_FILES['img']["name"]);
+          if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+          } else {
+            // echo "Sorry, there was an error uploading your file.";
+          }
+          update_taikhoan($id_user, $username, $password, $name, $address, $phone, $email, $file);
+          $_SESSION['user'] = check_user($username, $password); // sau khi edit xong thi edit lai $_SESSION['user'] moi
+          // header("location:index.php?act=edit_taikhoan");
+
+          $tb = "Edit account sucsess!";
+        }
+        include "edit_account.php";
+        break;
       default:
         include_once("user/home/index.php");
         break;

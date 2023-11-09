@@ -54,7 +54,7 @@
                                         <?php
                                         $hinhpath = "./upload/" . $image;
                                         if (is_file($hinhpath)) {
-                                            $hinh = "<img src='" . $hinhpath . "' height='70'>";
+                                            $hinh = "<img src='" . $hinhpath . "' height='170'>";
                                         } else {
                                             $hinh = "No photo";
                                         }
