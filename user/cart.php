@@ -9,6 +9,7 @@
             <th>Quantity</th>
             <th>Total</th>
             <th>Remove</th>
+            <th>hhahaha</th>
           </tr>
         </thead>
         <tbody class="align-middle">
