@@ -33,9 +33,9 @@ function check_email($email)
     return $sp;
     // return pdo_query_all($sql); //co ket qua tra ve phai return
 }
-function loadall_tk()
+function loadall_account()
 {
-    $sql = "select * from taikhoan tk join role rl on tk.role=rl.id_role order by id_tk desc";
+    $sql = "select * from user u join role rl on u.id_role=rl.id_role order by u.id_user desc";
     $dstk = pdo_query($sql);
     return $dstk; //co ket qua tra ve phai return
 }

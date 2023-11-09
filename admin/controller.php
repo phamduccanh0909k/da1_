@@ -4,6 +4,7 @@ include "../model/pdo.php";
 include "../model/cat.php";
 include "../model/product.php";
 include "../model/slider.php";
+include "../model/user.php";
 
 if (isset($_GET['act'])) {
   $act = $_GET['act'];
@@ -206,6 +207,10 @@ if (isset($_GET['act'])) {
       $dssl = loadall_slider();
       include "slider/list-slider.php";
       break;
+      case 'list_account':
+        $dstk = loadall_account();
+        include "account/list_account.php";
+        break;
   }
 } else {
   include("dashboard.php");
