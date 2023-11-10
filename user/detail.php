@@ -157,7 +157,7 @@
     <div class="col">
       <div class="nav nav-tabs justify-content-center border-secondary mb-4">
         <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews</a>
       </div>
       <div class="tab-content">
 
@@ -173,69 +173,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                $("#bl").load("comment_form.php", {
+                $("#tab-pane-3").load("user/comment/comment_form.php", {
                     id_pro: <?= $id_pro ?>
                 });
             });
         </script>
         <div class="tab-pane fade" id="tab-pane-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h4 class="mb-4">1 review for <?= $name_pro ?></h4>
-              <div class="media mb-4">
-                <!-- <img src="user/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px" /> -->
-                <div class="media-body">
-                  <h6>
-                    John Doe<small> - <i>01 Jan 2045</i></small>
-                  </h6>
-                  <div class="text-primary mb-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <p>
-                    Diam amet duo labore stet elitr ea clita ipsum, tempor
-                    labore accusam ipsum et no at. Kasd diam tempor rebum magna
-                    dolores sed sed eirmod ipsum.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <h4 class="mb-4">Leave a review</h4>
-              <small>Your email address will not be published. Required fields are
-                marked *</small>
-              <div class="d-flex my-3">
-                <p class="mb-0 mr-2">Your Rating * :</p>
-                <div class="text-primary">
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-              </div>
-              <form>
-                <div class="form-group">
-                  <label for="message">Your Review *</label>
-                  <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="name">Your Name *</label>
-                  <input type="text" class="form-control" id="name" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Your Email *</label>
-                  <input type="email" class="form-control" id="email" />
-                </div>
-                <div class="form-group mb-0">
-                  <input type="submit" value="Leave Your Review" class="btn btn-primary px-3" />
-                </div>
-              </form>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -279,76 +223,6 @@
         </div>';
         }
         ?>
-
-
-        <div class="card product-item border-0">
-          <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-            <img class="img-fluid w-100" src="user/img/product-2.jpg" alt="" />
-          </div>
-          <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-            <div class="d-flex justify-content-center">
-              <h6>$123.00</h6>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-          </div>
-          <div class="card-footer d-flex justify-content-between bg-light border">
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-              Cart</a>
-          </div>
-        </div>
-        <div class="card product-item border-0">
-          <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-            <img class="img-fluid w-100" src="user/img/product-3.jpg" alt="" />
-          </div>
-          <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-            <div class="d-flex justify-content-center">
-              <h6>$123.00</h6>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-          </div>
-          <div class="card-footer d-flex justify-content-between bg-light border">
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-              Cart</a>
-          </div>
-        </div>
-        <div class="card product-item border-0">
-          <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-            <img class="img-fluid w-100" src="user/img/product-4.jpg" alt="" />
-          </div>
-          <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-            <div class="d-flex justify-content-center">
-              <h6>$123.00</h6>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-          </div>
-          <div class="card-footer d-flex justify-content-between bg-light border">
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-              Cart</a>
-          </div>
-        </div>
-        <div class="card product-item border-0">
-          <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-            <img class="img-fluid w-100" src="user/img/product-5.jpg" alt="" />
-          </div>
-          <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-            <div class="d-flex justify-content-center">
-              <h6>$123.00</h6>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-          </div>
-          <div class="card-footer d-flex justify-content-between bg-light border">
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-              Cart</a>
-          </div>
-        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <?php
-function insert_bl($noidung, $id_tk, $id_sp, $ngaybl)
+function insert_bl($content, $date_com, $id_user, $id_pro)
 {
-    $sql = "insert into binhluan(noidung,id_tk,id_sp,ngaybl) values('$noidung','$id_tk','$id_sp','$ngaybl')";
+    $sql = "insert into comment(content, date_com, id_user, id_pro) values('$content','$date_com','$id_user','$id_pro')";
     pdo_execute($sql);
 }
 
@@ -32,12 +32,12 @@ function loadall_bl()
     $dsbl = pdo_query($sql);
     return $dsbl; //co ket qua tra ve phai return
 }
-function loadall_bll($id_sp)
+function loadall_bll($id_pro)
 {
-    $sql = "SELECT bl.*,tk.username from binhluan bl join taikhoan tk on bl.id_tk=tk.id_tk where 1";
-    if ($id_sp > 0)
-        $sql .= " and id_sp='" . $id_sp . "'";
-    $sql .= " order by id_bl desc ";
+    $sql = "SELECT c.*,u.username,p.name_pro from comment c join user u on c.id_user=u.id_user join product p on c.id_pro=p.id_pro where 1";
+    if ($id_pro > 0)
+        $sql .= " and c.id_pro='" . $id_pro . "'";
+    $sql .= " order by id_com desc ";
 
     $ds = pdo_query($sql);
     return $ds; //co ket qua tra ve phai return
