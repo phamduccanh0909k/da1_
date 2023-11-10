@@ -30,9 +30,8 @@
                     <tbody>
                         <?php foreach ($dstk as $d) {
                             extract($d);
-
-                            $suatk = "index.php?act=edit_account&id_user=" . $id_user;
-                            $xoatk = "index.php?act=delete_account&id_user=" . $id_user;
+                            $suatk = "index.php?act=edit_acc&id_user=" . $id_user;
+                            $xoatk = "index.php?act=delete_acc&id_user=" . $id_user;
                             $hinhpath = "../upload/" . $image;
 
                             if (is_file($hinhpath)) {
@@ -63,7 +62,7 @@
                         ?>
                     </tbody>
                 </table>
-                <a href="?act=add_account">
+                <a href="?act=add_acc">
                     <input type="submit" class="btn btn-primary" name="them" value="ADD">
                 </a>
 
