@@ -54,15 +54,25 @@
         $name_cat = load_ten_dm($id_cat);
         include "product_cat.php";
         break;
+
+        //shop
       case 'shop':
+        $sps = loadall_pro_shop1();
         include_once("shop.php");
         break;
+      case 'shop1':
+        $sps = loadall_pro_shop2();
+        include_once("shop.php");
+        break;
+      case 'shop2':
+        $sps = loadall_pro_shop3();
+        include_once("shop.php");
+        break;
+
       case 'contact':
         include_once("contact.php");
         break;
-      case 'cart':
-        include_once("cart.php");
-        break;
+
       case 'checkout':
         include_once("checkout.php");
         break;
