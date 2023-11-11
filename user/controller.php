@@ -146,7 +146,7 @@
         break;
       case 'log_out':
         session_unset();
-        header('Location:index.php');
+        header('Location:?act=login');
         break;
       default:
         include_once("user/home/index.php");
