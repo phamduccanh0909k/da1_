@@ -22,6 +22,16 @@
       case 'home':
         include_once("user/home/index.php");
         break;
+      case 'search_pro':
+        if (isset($_POST['kyw']) && ($_POST['kyw']) != "") {
+          $kyw = $_POST['kyw'];
+        } else {
+          $kyw = "";
+        }
+        $sp = loadall_proo($kyw);
+        // $name_cat = load_ten_dm($id_cat);
+        include "search_pro.php";
+        break;
       case 'pro_detail':
         if (isset($_GET['id_pro']) && ($_GET['id_pro']) > 0) {
           $onesp = loadone_pro($_GET['id_pro']);

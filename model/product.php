@@ -99,3 +99,15 @@ function tangluotxem($id_pro)
     $sql = "update product set view='" . $view . "' where id_pro =" . $id_pro;
     pdo_execute($sql);
 }
+function loadall_proo($kyw = "")
+{
+    //cach noi chuoi sql
+    //phai co cach khoang
+    $sql = "select * from product where 1";
+    if ($kyw != "") {
+        $sql .= " and name_pro like '%" . $kyw . "%' ";
+    }
+    $sql .= " order by id_pro desc";
+    $sp = pdo_query($sql);
+    return $sp; //co ket qua tra ve phai return
+}
