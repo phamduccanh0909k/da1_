@@ -69,13 +69,6 @@
         include_once("shop.php");
         break;
 
-      case 'contact':
-        include_once("contact.php");
-        break;
-
-      case 'checkout':
-        include_once("checkout.php");
-        break;
       case 'sign_up':
         if (isset($_POST['sign_up']) && ($_POST['sign_up'])) {
           $username = $_POST['username'];
@@ -160,6 +153,19 @@
         break;
       default:
         include_once("user/home/index.php");
+        break;
+
+        //muahang
+      case 'contact':
+        include_once("contact.php");
+        break;
+
+      case 'checkout':
+        include_once("checkout.php");
+        break;
+
+      case "cart":
+        include 'cart.php';
         break;
     }
   } else {
