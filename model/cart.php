@@ -5,7 +5,7 @@ function view_cart($del)
     $tong = 0;
     $i = 0;
     if ($del == 1) {
-        $xoasp_th = '<th>Thao tác</th>';
+        $xoasp_th = '<th>Action</th>';
 
         $xoasp_td2 = '';
     } else {
@@ -14,46 +14,65 @@ function view_cart($del)
         $xoasp_td2 = "";
     }
 
-    echo '<tr>
-    <th>Hình</th>
-    <th>Tên sản phẩm</th>
-    <th>Giá</th>
-    <th>Số lượng</th>
-    <th>Thành Tiền</th>
+
+
+    echo '   <thead class="bg-secondary text-dark">
+    <tr>
+    <th>Image</th>
+    <th>Products</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
  ' . $xoasp_th . '
-</tr>';
+</tr>
+</thead>';
     foreach ($_SESSION['mycart'] as $cart) {
         $hinh = $img_path . $cart[2];
         // $gia = $cart[3];
-        $gia =  $cart[3] - (($cart[3] *  $cart[4]) / 100);
-        $thanhtien = $gia * $cart[5];
-        $tong += $thanhtien;
+        $price =  $cart[3] - (($cart[3] *  $cart[4]) / 100);
+        $total = $price * $cart[5];
+        $tong += $total;
         if ($del == 1) {
 
-            $xoasp_td = '<td><a href="index.php?act=delcart&idcart=' . $i . '">
-            <input onclick="return confirm(\' ban co muon xoa ko? \')" type="button" value="xoa" class="xoa" id="x"></a></td>';
+            $xoasp_td = '<td><a href="index.php?act=delcart&id_cart=' . $i . '">
+            <input class="btn btn-danger" type="button" value="Remove" onclick ="return confirm(\'ban co chac chan muon xoa?\')" /></a></td>';
         } else {
 
             $xoasp_td = "";
         }
 
-        echo ' 
+        echo '  <tbody class="align-middle">
        <tr> 
         <td><img src="' . $hinh . '" alt="" height="80px"></td>
-        <td>' . $cart[1] . '</td>
-        <td>$' . number_format($gia, 0, ",", ".") . '</td>
-        <td>' . $cart[5] . '</td>
-        <td>$' . number_format($thanhtien, 0, ",", ".") . '</td>
+        <td class="align-middle">' . $cart[1] . '</td>
+        <td class="align-middle">' . number_format($price, 0, ",", ".") . '$</td>
+        <td class="align-middle">
+        <div class="input-group quantity mx-auto" style="width: 100px">
+          <div class="input-group-btn">
+            <button class="btn btn-sm btn-primary btn-minus">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+          <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1" />
+          <div class="input-group-btn">
+            <button class="btn btn-sm btn-primary btn-plus">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </td>
+        <td class="align-middle">' . number_format($total, 0, ",", ".") . '$</td>
        ' . $xoasp_td . '
         
        </tr> 
+       </tbody>
     ';
         $i += 1;
     }
     echo '
-<td colspan="4">Tổng đơn hàng</td>
+<td colspan="4">Total order</td>
 
-<td>$' . number_format($tong, 0, ",", ".") . '</td>
+<td class="align-middle">' . number_format($tong, 0, ",", ".") . '$</td>
 ' . $xoasp_td2 . '
 ';
 }

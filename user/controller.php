@@ -2,6 +2,7 @@
   // Navbar
   ob_start();
   session_start();
+  
   include_once("_navbar.php");
   include_once("./global.php");
   include_once "./model/pdo.php";
@@ -10,6 +11,11 @@
   include_once "./model/size.php";
   include_once "./model/slider.php";
   include_once "./model/user.php";
+  include_once "./model/cart.php";
+
+  if (!isset($_SESSION['mycart'])) {
+    $_SESSION['mycart'] = [];
+  }
 
   $spnew = loadall_pro_home();
   $dsdm = loadall_cat();
@@ -164,8 +170,37 @@
         include_once("checkout.php");
         break;
 
-      case "cart":
-        include 'cart.php';
+      case 'addtocart':
+        //add thong tin sp tu cai form add to cart den session
+        if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
+          // Kiểm tra tài khoản đang đăng nhập
+          if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] == 2) {
+            header('Location: index.php'); // Chuyển hướng về trang index.php
+            exit(); // Dừng việc thực thi các lệnh tiếp theo
+          }
+          $id_pro = $_POST['id_pro'];
+          $name_pro = $_POST['name_pro'];
+          $img = $_POST['img'];
+          $price = $_POST['price'];
+          $discount = $_POST['discount'];
+          $quantity = 1;
+          $total = $quantity * $price;
+          $spadd = [$id_pro, $name_pro, $img, $price, $discount, $quantity, $total];
+          array_push($_SESSION['mycart'], $spadd); //add mang con($spadd) vao mang cha $_session...
+        }
+        include "view_cart.php";
+        break;
+      case "view_cart":
+        include 'view_cart.php';
+        break;
+      case 'delcart':
+        if (isset($_GET['id_cart'])) {
+          array_splice($_SESSION['mycart'], $_GET['id_cart'], 1);
+        } else {
+          $_SESSION['mycart'] = [];
+        }
+        header('Location:index.php?act=view_cart');
+        // include "view/cart/viewcart.php";
         break;
     }
   } else {

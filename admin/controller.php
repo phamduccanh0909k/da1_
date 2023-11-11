@@ -1,5 +1,13 @@
 <?php
 ob_start();
+session_start();
+if (!isset($_SESSION['user'])) {
+  header("location: ./index.php");
+} else {
+  if ($_SESSION['user']['id_role'] == 1) {
+    header("location: ../index.php");
+  }
+}
 include "../model/pdo.php";
 include "../model/cat.php";
 include "../model/product.php";
