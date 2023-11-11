@@ -5,29 +5,29 @@ function insert_bl($content, $date_com, $id_user, $id_pro)
     pdo_execute($sql);
 }
 
-function delete_bl($id_bl)
+function delete_com($id_com)
 {
-    $sql = "delete from binhluan where id_bl=" . $id_bl;
+    $sql = "delete from comment where id_com=" . $id_com;
     pdo_execute($sql);
 }
-function loadall_bluan($id_sp)
+function loadall_bluan($id_pro)
 {
-    $sql = "SELECT bl.noidung,bl.ngaybl,tk.ho_ten as nguoibl,sp.name,bl.id_sp,bl.id_bl
-    from sanpham sp INNER join binhluan bl on sp.id_sp=bl.id_sp
-    INNER join taikhoan tk on bl.id_tk=tk.id_tk where 1";
-    if ($id_sp > 0)
-        $sql .= " and bl.id_sp='" . $id_sp . "'";
+    $sql = "SELECT bl.content,bl.date_com,tk.username as user_com,sp.name_pro,bl.id_pro,bl.id_com
+    from product sp INNER join comment bl on sp.id_pro=bl.id_pro
+    INNER join user tk on bl.id_user=tk.id_user where 1";
+    if ($id_pro > 0)
+        $sql .= " and bl.id_pro='" . $id_pro . "'";
     // $sql .= " and bl.id_bl=  " . $id_bl;
-    $sql .= " order by bl.id_bl desc ";
+    $sql .= " order by bl.id_com desc ";
 
     $ctbl = pdo_query($sql);
     return $ctbl; //co ket qua tra ve phai return
 }
 function loadall_bl()
 {
-    $sql = "SELECT sp.name,COUNT(bl.id_bl) as sobl,bl.id_sp, bl.ngaybl, MAX(bl.ngaybl) as moinhat, min(bl.ngaybl) as cunhat,bl.id_bl
-    from sanpham sp INNER join binhluan bl on sp.id_sp=bl.id_sp
-    INNER join taikhoan tk on bl.id_tk=tk.id_tk GROUP by bl.id_sp ";
+    $sql = "SELECT sp.name_pro,COUNT(bl.id_com) as count_com,bl.id_pro, bl.date_com, MAX(bl.date_com) as new_date, min(bl.date_com) as old_date,bl.id_com
+    from product sp INNER join comment bl on sp.id_pro=bl.id_pro
+    INNER join user tk on bl.id_user=tk.id_user GROUP by bl.id_pro";
 
     $dsbl = pdo_query($sql);
     return $dsbl; //co ket qua tra ve phai return
@@ -42,9 +42,9 @@ function loadall_bll($id_pro)
     $ds = pdo_query($sql);
     return $ds; //co ket qua tra ve phai return
 }
-function loadone_spbl($id_sp)
+function loadone_spbl($id_pro)
 {
-    $sql = "select * from sanpham sp join binhluan bl on sp.id_sp =bl.id_sp where bl.id_sp=" . $id_sp;
+    $sql = "select * from product sp join comment bl on sp.id_pro =bl.id_pro where bl.id_pro=" . $id_pro;
     $sp = pdo_query_one($sql);
     return $sp; //co ket qua tra ve phai return
 }
