@@ -2,7 +2,7 @@
   // Navbar
   ob_start();
   session_start();
-  
+
   include_once("_navbar.php");
   include_once("./global.php");
   include_once "./model/pdo.php";
